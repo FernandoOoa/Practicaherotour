@@ -12,19 +12,12 @@ export class DashboardComponent implements OnInit {
 
   constructor(private heroService: HeroService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getHeroes();
   }
 
   getHeroes(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.sort(function(a, b){
-        return b.pts-a.pts
-      }).slice(0, 5));
-      
+      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
   }
-
-  
-
- 
 }
